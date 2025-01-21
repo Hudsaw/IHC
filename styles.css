@@ -26,7 +26,7 @@ a:hover {
     color: #A8D5BA;
 }
 
-.promo, .filter, .product, .cart-item, .container form {
+.promo, .filter, .guarda-roupa, .classificacao, .container form {
     background-color: #FFFFFF;
     padding: 15px;
     border-radius: 8px;
@@ -46,13 +46,79 @@ button {
     color: #FFFFFF;
     border: none;
     font-size: 16px;
+    cursor: pointer;
 }
 
 button:hover {
     background-color: #8CB398;
 }
 
+/* Estilos gerais para imagens */
 img {
-    max-width: 100%;
     border-radius: 8px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+/* Tamanho das imagens na tela inicial (index.html) */
+.promo-grid .product img, .guarda-roupa img {
+    width: 100%;
+    height: 400px; /* Tamanho menor para a tela inicial */
+}
+
+/* Tamanho das imagens na tela de produto (produto.html) */
+.product-details img {
+    width: 100%;
+    height: 600px; /* Tamanho maior para a tela de produto */
+}
+
+/* Tamanho das imagens no carrinho (carrinho.html) */
+.cart-item img {
+    width: 100px; /* Tamanho menor para o carrinho */
+    height: 100px;
+}
+
+/* Menu Responsivo */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+/* Layout Responsivo */
+.promo-grid, .guarda-roupa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
 }
